@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.support.FileSystemXmlApplicationContext;
 import org.springframework.web.context.ContextLoader;
 
 import com.alibaba.druid.pool.DruidDataSource;
@@ -186,7 +186,7 @@ public class DatabaseConnection {
 
 				if (context == null) {
 					// 再加载本地的spring配置容器
-					context = new ClassPathXmlApplicationContext(
+					context = new FileSystemXmlApplicationContext(
 							DatabaseConnection.connConfig);
 
 				}
@@ -196,7 +196,7 @@ public class DatabaseConnection {
 			// 加载异常再次使用本地的spring配置容器
 			ex.printStackTrace();
 			if (context == null) {
-				context = new ClassPathXmlApplicationContext(
+				context = new FileSystemXmlApplicationContext(
 						DatabaseConnection.connConfig);
 
 			}
