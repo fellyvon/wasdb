@@ -1,6 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>wasdbtools</groupId>
+  <groupId>com.waspring.wasdb</groupId>
   <artifactId>wasdbtools</artifactId>
   <version>1.0.0</version>
   <name>wasdbtools</name>
@@ -14,11 +14,27 @@
           <target>1.6</target>
         </configuration>
       </plugin>
+      
+      
+<plugin>  
+<groupId>org.apahce.maven.plugins</groupId>  
+<artifactId>maven-surefire-plugin</artifactId>  
+<version>2.5</version>  
+<configuration>  
+<excludes>  
+<exclude>**/test/*.java</exclude>  
+</excludes>  
+ </configuration>          
+</plugin>  
     </plugins>
   </build>
   
 <dependencies>
-  
+  <dependency>
+    <groupId>com.waspring.wasdb</groupId>
+    <artifactId>wasdb</artifactId>
+    <version>1.0.0</version>
+</dependency>
   	<!-- 阿里巴巴連接池 -->
 		<dependency>
 			<groupId>com.alibaba</groupId>
@@ -106,4 +122,30 @@
 			<version>5.1.35</version>
 		</dependency>
 </dependencies>
+
+<parent>
+		<groupId>org.sonatype.oss</groupId>
+		<artifactId>oss-parent</artifactId>
+		<version>7</version>
+	</parent>
+	
+	<licenses>
+		<license>
+			<name>The Apache Software License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+	<scm>
+		<url>git@github.com:fellyvon/wasdb</url>
+		<connection>git@github.com:fellyvon/wasdb.git</connection>
+		<developerConnection>http://www.waspring.com</developerConnection>
+	</scm>
+	<developers>
+		<developer>
+			<name>felly von</name>
+			<email>fellyvon@foxmail.com</email>
+			<url>http://www.waspring.com</url>
+		</developer>
+	</developers>
 </project>
