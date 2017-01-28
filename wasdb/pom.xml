@@ -5,7 +5,17 @@
 	<artifactId>wasdb</artifactId>
 	<version>1.0.0</version>
 	<name>wasdb</name>
-	<description>一个对JDBC进行简单封装的开源工具类库，使用它能够简化JDBC应用程序的开发，同时也不会影响程序的性能,同时使用方式也和jdbc保持了高度的统一.</description>
+	<description>一个对JDBC进行简单封装的开源工具类库.
+简化JDBC应用程序的开发，不会影响程序的性能,与jdbc保持高度的统一.
+1.对于数据表的读操作，他可以把ResultSet结果转换成缓存对象，内部数据格式为XML，同时可以转化为List，Array，Set等java集合，便于程序员操作。
+2.对于数据表的写操作，也变得很简单（只需写sql语句）。
+3.可以使用数据源，数据库连接池等技术来优化性能--重用已经构建好的数据库连接对象，而不用费时费力的不断重复的构建和析构这样的对象。
+4.支持ResultSet数据集的动态增加、删除、修改、查找、排序、并集等操作。
+5.支持分布式数据库,多数据源。
+
+本项目主要包含两个模块，wasdb和wasdbtools:
+1.wasdb模块是本项目的核心，用于实现JDBC的操作。
+2.wasdbtools模块是wasdb使用的一个实现，包括数据源配置,事务管理,数据库的读写工具,简单实例等。</description>
 	<build>
 		<plugins>
 			<plugin>
