@@ -36,9 +36,9 @@ com.waspring.wasdbtools.DatabaseConnection.setConnConfig("classpath:你的路径
 	 * @throws Exception
 	 */
 	public void queryData() throws Exception {
-		String sql = "select *  from d_order limit ?";
+		String sql = "select *  from d_order limit ?,?";
        ///注意这里的connName即为database.xml的beanId
-		ResultSet rs = DaoUtil.queryData(connName, sql, new Object[] { 10 });
+		ResultSet rs = DaoUtil.queryData(connName, sql, new Object[] { 1,10 });
 
 		while (rs.next()) {
 			System.out.println("data=" + rs.getString(1) + ":"
@@ -62,13 +62,13 @@ com.waspring.wasdbtools.DatabaseConnection.setConnConfig("classpath:你的路径
 		Object o = tmp.executeTransaction(new TransactionCallback() {
 			public Object doTransactionEvent() throws Exception {
 				Exception e = new Exception();
-				String sql = "insert into a_api_topy(topy_name) values(?)";
+				String sql = "insert into a_api_topy(topy_name,topy_value) values(?,?)";
                 ///注意这里的connName即为database.xml的beanId
-				DaoUtil.executeUpdate(connName, sql, new Object[] { "2" });
+				DaoUtil.executeUpdate(connName, sql, new Object[] { "2",4 });
                 ///注意这里的connName即为database.xml的beanId
-				DaoUtil.executeUpdate(connName, sql, new Object[] { "4" });
+				DaoUtil.executeUpdate(connName, sql, new Object[] { "4",5 });
                 ///注意这里的connName即为database.xml的beanId
-				DaoUtil.executeUpdate(connName, sql, new Object[] { "5" });
+				DaoUtil.executeUpdate(connName, sql, new Object[] { "5" ,7});
 				// /这里可以试着抛出异常来回滚
 
 				return "1";
@@ -89,15 +89,15 @@ com.waspring.wasdbtools.DatabaseConnection.setConnConfig("classpath:你的路径
 		TransactionManager trManager = new TransactionManager(connName);
 
 		Transaction transaction = null;
-		String sql = "insert into a_api_topy(topy_name) values(?)";
+		String sql = "insert into a_api_topy(topy_name,topy_value) values(?,?)";
 		try {
 			transaction = trManager.beginTransaction();
 			 ///注意这里的connName即为database.xml的beanId
-			DaoUtil.executeUpdate(connName, sql, new Object[] { "h1" });
+			DaoUtil.executeUpdate(connName, sql, new Object[] { "h1",1 });
             ///注意这里的connName即为database.xml的beanId
-			DaoUtil.executeUpdate(connName, sql, new Object[] { "h2" });
+			DaoUtil.executeUpdate(connName, sql, new Object[] { "h2",2 });
              ///注意这里的connName即为database.xml的beanId
-			DaoUtil.executeUpdate(connName, sql, new Object[] { "h3" });
+			DaoUtil.executeUpdate(connName, sql, new Object[] { "h3",3 });
 			// /这里可以试着抛出异常来回滚
 			trManager.commitTransaction(transaction);
 		} catch (Exception e) {
@@ -114,13 +114,13 @@ com.waspring.wasdbtools.DatabaseConnection.setConnConfig("classpath:你的路径
 	public void testNoTras() {
 		try {
 
-			String sql = "insert into a_api_topy(topy_name) values(?)";
+			String sql = "insert into a_api_topy(topy_name,topy_value) values(?,?)";
             ///注意这里的connName即为database.xml的beanId
-			DaoUtil.executeUpdate(connName, sql, new Object[] { "7" });
+			DaoUtil.executeUpdate(connName, sql, new Object[] { "7",1 });
             ///注意这里的connName即为database.xml的beanId
-			DaoUtil.executeUpdate(connName, sql, new Object[] { "8" });
+			DaoUtil.executeUpdate(connName, sql, new Object[] { "8" ,2});
             ///注意这里的connName即为database.xml的beanId
-			DaoUtil.executeUpdate(connName, sql, new Object[] { "9" });
+			DaoUtil.executeUpdate(connName, sql, new Object[] { "9" ,3});
 			// /这里可以试着抛出异常来回滚
 		} catch (Exception e) {
 
