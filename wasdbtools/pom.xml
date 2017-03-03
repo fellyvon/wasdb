@@ -1,10 +1,11 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.waspring.wasdb</groupId>
-  <artifactId>wasdbtools</artifactId>
-  <version>1.0.0</version>
-  <name>wasdbtools</name>
-  <description>一个对JDBC进行简单封装的开源工具类库.
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.waspring.wasdb</groupId>
+	<artifactId>wasdbtools</artifactId>
+	<version>1.0.0</version>
+	<name>wasdbtools</name>
+	<description>一个对JDBC进行简单封装的开源工具类库.
 简化JDBC应用程序的开发，不会影响程序的性能,与jdbc保持高度的统一.
 1.对于数据表的读操作，他可以把ResultSet结果转换成缓存对象，内部数据格式为XML，同时可以转化为List，Array，Set等java集合，便于程序员操作。
 2.对于数据表的写操作，也变得很简单（只需写sql语句）。
@@ -15,44 +16,44 @@
 本项目主要包含两个模块，wasdb和wasdbtools:
 1.wasdb模块是本项目的核心，用于实现JDBC的操作。
 2.wasdbtools模块是wasdb使用的一个实现，包括数据源配置,事务管理,数据库的读写工具,简单实例等。</description>
-  <build>
-    <plugins>
-      <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <configuration>
-          <source>1.6</source>
-          <target>1.6</target>
-        </configuration>
-      </plugin>
-      
-      
-<plugin>  
-<groupId>org.apahce.maven.plugins</groupId>  
-<artifactId>maven-surefire-plugin</artifactId>  
-<version>2.5</version>  
-<configuration>  
-<excludes>  
-<exclude>**/test/*.java</exclude>  
-</excludes>  
- </configuration>          
-</plugin>  
-    </plugins>
-  </build>
-  
-<dependencies>
-  <dependency>
-    <groupId>com.waspring.wasdb</groupId>
-    <artifactId>wasdb</artifactId>
-    <version>1.0.0</version>
-</dependency>
-  	<!-- 阿里巴巴連接池 -->
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+
+
+			<plugin>
+				<groupId>org.apahce.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.5</version>
+				<configuration>
+					<excludes>
+						<exclude>**/test/*.java</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.waspring.wasdb</groupId>
+			<artifactId>wasdb</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<!-- 阿里巴巴連接池 -->
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>druid</artifactId>
 			<version>1.0.14</version>
 		</dependency>
-		
-		
+
+
 		<!-- 引用spring -->
 		<!-- <dependency> <groupId>org.springframework</groupId> <artifactId>spring</artifactId> 
 			<version>2.5.6</version> </dependency> <dependency> <groupId>org.springframework</groupId> 
@@ -62,61 +63,31 @@
 			<artifactId>spring-context</artifactId>
 			<version>3.2.0.RELEASE</version>
 		</dependency>
-		<!-- <dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-tx</artifactId>
-			<version>3.2.0.RELEASE</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-test</artifactId>
-			<version>3.2.0.RELEASE</version>
-		</dependency>-->
+		<!-- <dependency> <groupId>org.springframework</groupId> <artifactId>spring-tx</artifactId> 
+			<version>3.2.0.RELEASE</version> </dependency> <dependency> <groupId>org.springframework</groupId> 
+			<artifactId>spring-test</artifactId> <version>3.2.0.RELEASE</version> </dependency> -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-beans</artifactId>
 			<version>3.2.0.RELEASE</version>
-		</dependency><!-- 
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-aop</artifactId>
-			<version>3.2.0.RELEASE</version>
-		</dependency>
- -->
+		</dependency><!-- <dependency> <groupId>org.springframework</groupId> <artifactId>spring-aop</artifactId> 
+			<version>3.2.0.RELEASE</version> </dependency> -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
 			<version>3.2.0.RELEASE</version>
 		</dependency>
-		<!-- 
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-expression</artifactId>
-			<version>3.2.0.RELEASE</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-orm</artifactId>
-			<version>3.2.0.RELEASE</version>
-		</dependency>
--->
+		<!-- <dependency> <groupId>org.springframework</groupId> <artifactId>spring-expression</artifactId> 
+			<version>3.2.0.RELEASE</version> </dependency> <dependency> <groupId>org.springframework</groupId> 
+			<artifactId>spring-orm</artifactId> <version>3.2.0.RELEASE</version> </dependency> -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
 			<version>3.2.0.RELEASE</version>
-		</dependency><!-- 
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-webmvc</artifactId>
-			<version>3.2.0.RELEASE</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-aspects</artifactId>
-			<version>3.2.0.RELEASE</version>
-		</dependency>
--->
+		</dependency><!-- <dependency> <groupId>org.springframework</groupId> <artifactId>spring-webmvc</artifactId> 
+			<version>3.2.0.RELEASE</version> </dependency> <dependency> <groupId>org.springframework</groupId> 
+			<artifactId>spring-aspects</artifactId> <version>3.2.0.RELEASE</version> 
+			</dependency> -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
@@ -124,21 +95,21 @@
 		</dependency>
 
 		<!-- spring 引用结束 -->
-		
-		
-				<dependency>
+
+
+		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.35</version>
 		</dependency>
-</dependencies>
+	</dependencies>
 
-<parent>
+	<parent>
 		<groupId>org.sonatype.oss</groupId>
 		<artifactId>oss-parent</artifactId>
 		<version>7</version>
 	</parent>
-	
+
 	<licenses>
 		<license>
 			<name>The Apache Software License, Version 2.0</name>

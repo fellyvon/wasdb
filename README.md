@@ -12,7 +12,7 @@
 1.wasdb模块是本项目的核心，用于实现JDBC的操作。
 2.wasdbtools模块是wasdb使用的一个实现，包括数据源配置,事务管理,数据库的读写工具,简单实例等。
 
-
+github地址：https://github.com/fellyvon/wasdb
 #如何使用?
 1.建立新工程并引入wasdb-1.0.0.jar、wasdbtools-1.0.0.jar
    可以使用maven方式引入:
