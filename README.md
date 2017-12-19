@@ -38,7 +38,10 @@ com.waspring.wasdbtools.DatabaseConnection.setConnConfig("classpath:你的路径
 	public void queryData() throws Exception {
 		String sql = "select *  from d_order limit ?,?";
        ///注意这里的connName即为database.xml的beanId
-		ResultSet rs = DaoUtil.queryData(connName, sql, new Object[] { 1,10 });
+	    List para=new ArrayList();
+		  para.add(1);
+		  para.add(10);
+		ResultSet rs = DaoUtil.queryData(connName, sql, para.toArray());
 
 		while (rs.next()) {
 			System.out.println("data=" + rs.getString(1) + ":"
