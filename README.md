@@ -35,12 +35,19 @@ com.waspring.wasdbtools.DatabaseConnection.setConnConfig("classpath:你的路径
 	 * 查询数据测试
 	 * @throws Exception
 	 */
-	public void queryData() throws Exception {
-		String sql = "select *  from d_order limit ?,?";
-       ///注意这里的connName即为database.xml的beanId
-	    List para=new ArrayList();
+	public void queryData(String mainOrderNo) throws Exception {
+	 List para=new ArrayList();
+		String sql = "select *  from d_order  where status=? ";
+		para.add("001");
+		if(mainOrderNo!=null&&!"".equals(mainOrderNo)){
+		 sql+=" and main_order_no=?";
+		 	para.add(mainOrderNo);
+		}
+		sql+=" limit ?,? ";
+
 		  para.add(1);
 		  para.add(10);
+		 ///注意这里的connName即为database.xml的beanId
 		ResultSet rs = DaoUtil.queryData(connName, sql, para.toArray());
 
 		while (rs.next()) {
