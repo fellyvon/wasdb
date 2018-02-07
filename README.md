@@ -44,7 +44,6 @@ com.waspring.wasdbtools.DatabaseConnection.setConnConfig("classpath:你的路径
 		 	para.add(mainOrderNo);
 		}
 		sql+=" limit ?,? ";
-
 		  para.add(1);
 		  para.add(10);
 		 ///注意这里的connName即为database.xml的beanId
